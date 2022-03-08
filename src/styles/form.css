@@ -1,0 +1,58 @@
+#data {
+  flex-direction: column;
+  display: inline-flex;
+
+  padding: 1.2%;
+  margin: 0% 1.2%;
+
+  border-radius: 0px 0px 8px 8px;
+  background: orangered;
+  color: snow;
+}
+
+#data h2 {
+  text-align: center;
+  margin: 2%;
+}
+
+#data div {
+  justify-content: space-between;
+  display: flex;
+
+  margin: 1.2% 0%;
+}
+
+#data div:last-child {
+  margin: 30px 0px 0px;
+}
+
+#data input {
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+#data button {
+  padding: 2.5%;
+  width: 45%;
+
+  border-radius: 5px;
+  border: none;
+}
+
+#data button:nth-child(1) {
+  background-color: limegreen;
+  font-weight: 900;
+  color: snow;
+}
+
+#data button:nth-child(2) {
+  background-color: darkred;
+  font-weight: 900;
+  color: snow;
+}
+
+#data button:nth-child(3) {
+  background-color: darkkhaki
+  font-weight: 900;
+  color: snow;
+}

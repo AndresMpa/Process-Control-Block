@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="./src/assets/pcb.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./src/styles/main.css" />
+    <title>PCB</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <figure id="logo">
+        <img
+          alt="pcb"
+          src="./src/assets/pcb.png"
+          srcset="./src/assets/pcb.png"
+        />
+        <figcaption>Process Control Block</figcaption>
+      </figure>
+      <div>
+        <select name="algorithm" id="algorithm">
+          <option value="fifo">FIFO</option>
+          <option value="sjf">SJF</option>
+          <option value="priority">Priority</option>
+          <option value="roundRobin">Round Robin</option>
+        </select>
+      </div>
+    </nav>
+    <form id="data">
+      <h2>Control de procesos</h2>
+      <div>
+        <label for="name">Process name</label>
+        <input type="text" id="name" />
+      </div>
+
+      <div>
+        <label for="weight">CPU burst</label>
+        <input type="number" min="1" id="weight" />
+      </div>
+
+      <div>
+        <label for="start">Time start</label>
+        <input type="number" min="0" id="start" />
+      </div>
+
+      <div>
+        <label for="priority">Priority</label>
+        <input type="number" min="1" id="priority" />
+      </div>
+
+      <div>
+        <label for="fraction">Fraction</label>
+        <input type="number" min="1" id="fraction" />
+      </div>
+
+      <div>
+        <button id="addProcess">Add process</button>
+        <button id="simulation">Start simulation</button>
+        <button id="clearProcess">Clear process</button>
+      </div>
+    </form>
+    <main id="app"></main>
+    <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="./src/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+:root {
+  --backgroundColor: #ffffff;
+  --letterColor: #000;
+  --linksColor: #000;
+}
+
+*,
+body {
+  overflow-anchor: none;
+  padding: 0%;
+  margin: 0%;
+}
+
+body {
+  background-color: darkblue;
+  height: 100vh;
+}
+
+ul,
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--linksColor);
+}

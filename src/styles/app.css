@@ -1,0 +1,27 @@
+#app {
+  display: inline-flex;
+  position: absolute;
+
+  overflow-x: auto;
+  margin: 0% auto;
+  bottom: 0%;
+  left: 0%;
+
+  background-color: blue;
+  min-width: 180px;
+  max-width: 100%;
+  width: 100%;
+}
+
+.task {
+  flex-direction: column;
+  display: inline-flex;
+
+  min-width: 120px;
+  padding: 0.8%;
+  margin: 1.2%;
+
+  background-color: tan;
+  border-radius: 8px;
+  text-align: center;
+}
