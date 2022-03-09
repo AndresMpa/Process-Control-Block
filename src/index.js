@@ -3,10 +3,10 @@ import { simulate } from "./simulation/makeSimulation.js";
 import * as util from "./utility/visibility.js";
 
 const algorithm = document.querySelector("#algorithm");
+const data = document.querySelector("#data form");
 const start = document.querySelector("#start");
 const name = document.querySelector("#name");
 const logo = document.querySelector("#logo");
-const data = document.querySelector("#data");
 const app = document.querySelector("#app");
 
 window.onload = () => util.hiddeOption(algorithm.value);
@@ -52,6 +52,17 @@ document.querySelector("#simulation").addEventListener("click", () => {
     JSON.parse(localStorage.getItem("task")).length > 1
   ) {
     util.handleComponentVisibility(data, false);
+
+    document.querySelectorAll(".task").forEach((currentTask) => {
+      currentTask.classList = "reduce__task";
+    });
+
+    try {
+      document.querySelector("canvas").remove();
+    } catch {
+      console.log("Restarting simulation");
+    }
+
     simulate(algorithm.value);
   } else {
     Swal.fire(
@@ -63,5 +74,25 @@ document.querySelector("#simulation").addEventListener("click", () => {
 });
 
 document.querySelector("#clearProcess").addEventListener("click", () => {
+  const input = document.querySelectorAll("input");
+
+  input.forEach((item) => {
+    item.value = null;
+  });
+
+  input[0].value = 1;
+  input[1].value = 2;
+  input[2].value = 0;
+
+  document.querySelectorAll(".reduce__task").forEach((currentTask) => {
+    currentTask.classList = "task";
+  });
+
+  try {
+    document.querySelector("canvas").remove();
+  } catch {
+    console.log("There's no simulations running");
+  }
+
   util.clearQueue();
 });

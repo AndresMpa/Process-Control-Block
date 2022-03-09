@@ -8,7 +8,6 @@
   left: 0%;
 
   background-color: blue;
-  min-width: 180px;
   max-width: 100%;
   width: 100%;
 }
@@ -24,4 +23,35 @@
   background-color: tan;
   border-radius: 8px;
   text-align: center;
+}
+
+.reduce__task {
+  flex-direction: column;
+  display: inline-flex;
+
+  min-width: 60px;
+  padding: 0.8%;
+  margin: 0.2%;
+
+  background-color: tan;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 8px;
+}
+
+.board {
+  display: block;
+
+  margin: 10px auto;
+  /*max-height: 80vh;*/
+  /*width: 98%;*/
+
+  background-color: lightskyblue;
+  border: 1px solid white;
+  border-radius: 8px;
+}
+
+.process {
+  border: 1px solid black;
+  border-radius: 8px;
 }

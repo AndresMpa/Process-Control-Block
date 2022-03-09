@@ -30,39 +30,41 @@
         </select>
       </div>
     </nav>
-    <form id="data">
-      <h2>Control de procesos</h2>
-      <div>
-        <label for="name">Process name</label>
-        <input type="text" id="name" />
-      </div>
+    <section id="data">
+      <form>
+        <h2>Control de procesos</h2>
+        <div>
+          <label for="name">Process name</label>
+          <input type="text" id="name" />
+        </div>
 
-      <div>
-        <label for="weight">CPU burst</label>
-        <input type="number" min="1" id="weight" />
-      </div>
+        <div>
+          <label for="weight">CPU burst</label>
+          <input type="number" min="1" id="weight" />
+        </div>
 
-      <div>
-        <label for="start">Time start</label>
-        <input type="number" min="0" id="start" />
-      </div>
+        <div>
+          <label for="start">Time start</label>
+          <input type="number" min="0" id="start" />
+        </div>
 
-      <div>
-        <label for="priority">Priority</label>
-        <input type="number" min="1" id="priority" />
-      </div>
+        <div>
+          <label for="priority">Priority</label>
+          <input type="number" min="1" id="priority" />
+        </div>
 
-      <div>
-        <label for="fraction">Fraction</label>
-        <input type="number" min="1" id="fraction" />
-      </div>
+        <div>
+          <label for="fraction">Fraction</label>
+          <input type="number" min="1" id="fraction" />
+        </div>
 
-      <div>
-        <button id="addProcess">Add process</button>
-        <button id="simulation">Start simulation</button>
-        <button id="clearProcess">Clear process</button>
-      </div>
-    </form>
+        <div>
+          <button id="addProcess">Add process</button>
+          <button id="simulation">Start simulation</button>
+          <button id="clearProcess">Clear process</button>
+        </div>
+      </form>
+    </section>
     <main id="app"></main>
     <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="./src/index.js"></script>

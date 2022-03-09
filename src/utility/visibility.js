@@ -4,7 +4,7 @@ export const hiddeOption = (value) => {
   switch (value) {
     case "fifo":
       fields[0].parentNode.style.display = "flex";
-      fields[3].parentNode.style.display = "none";
+      fields[1].parentNode.style.display = "flex";
       fields[2].parentNode.style.display = "flex";
       fields[3].parentNode.style.display = "none";
       fields[4].parentNode.style.display = "none";
@@ -35,7 +35,7 @@ export const hiddeOption = (value) => {
 
 export const handleComponentVisibility = (component, analize = true) => {
   if (component.style.display === "none" && analize) {
-    component.classList = "animate__animated animate__backInLeft";
+    component.classList = "animate__animated animate__backInLeft animate__faster";
     setTimeout(() => {
       component.style.display = "inline-flex";
     }, 500);

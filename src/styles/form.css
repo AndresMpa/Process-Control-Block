@@ -1,4 +1,9 @@
 #data {
+  position: relative;
+}
+
+#data form{
+  position: absolute;
   flex-direction: column;
   display: inline-flex;
 
