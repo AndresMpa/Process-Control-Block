@@ -1,0 +1,8 @@
+.stats {
+  position: relative;
+}
+
+.stats table {
+  position: absolute;
+  left: 0;
+}
