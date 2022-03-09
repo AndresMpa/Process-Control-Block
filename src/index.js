@@ -1,4 +1,5 @@
 import { createTask, validateForm } from "./simulation/createTask.js";
+import { performeStats } from "./simulation/performStats.js";
 import { simulate } from "./simulation/makeSimulation.js";
 import * as util from "./utility/visibility.js";
 
@@ -42,8 +43,8 @@ document.querySelector("#addProcess").addEventListener("click", () => {
   } else {
     let newTask = validateForm();
     createTask(app, newTask);
+    name.value = parseInt(name.value) + 1;
   }
-  name.value = parseInt(name.value) + 1;
 });
 
 document.querySelector("#simulation").addEventListener("click", () => {
@@ -58,12 +59,14 @@ document.querySelector("#simulation").addEventListener("click", () => {
     });
 
     try {
+      document.querySelector(".stats article").remove();
       document.querySelector("canvas").remove();
     } catch {
       console.log("Restarting simulation");
     }
 
     simulate(algorithm.value);
+    performeStats();
   } else {
     Swal.fire(
       "Oops...",
@@ -89,6 +92,7 @@ document.querySelector("#clearProcess").addEventListener("click", () => {
   });
 
   try {
+    document.querySelector(".stats article").remove();
     document.querySelector("canvas").remove();
   } catch {
     console.log("There's no simulations running");

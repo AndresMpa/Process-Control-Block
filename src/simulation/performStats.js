@@ -1,25 +1,81 @@
-const stats = document.querySelector("#stats");
+const TEperformance = (table, taskQueue) => {
+  table.insertAdjacentHTML(
+    "beforeend",
+    `<thead>
+      <th>P</th>
+      <th>(ts)</th>
+      <th>(t)</th>
+      <th>(TE)</th>
+    </thead>`
+  );
 
-const performeStats = () => {
-  let process = document.createElement("article");
-  process.classList.add("dashboard");
-  process.innerHTML = `
-    <h2>Simulation performance</h2>
-    <div>
-      <p><span>CPU burst: </span> ${data["weight"]}</p>
-      <p><span>Time start: </span> ${data["start"]}</p>
-      ${
-        data["priority"]
-          ? `<p><span>Priority: </span> ${data["priority"]}</p>`
-          : ``
-      }
-      ${
-        data["fraction"]
-          ? `<p><span>Fraction: </span> ${data["fraction"]}</p>`
-          : ``
-      }
+  let averange = 0;
+  let counter = 0;
+  taskQueue.forEach((task) => {
+    table.insertAdjacentHTML(
+      "beforeend",
+      `<tr>
+        <th>${task["name"]}</th>
+        <th>${counter}</th>
+        <th>${parseInt(task["start"])}</th>
+        <th>${counter - parseInt(task["start"])}</th>
+      </tr>`
+    );
+    averange += counter - parseInt(task["start"]);
+    counter += parseInt(task["weight"]);
+  });
 
-    </div>
-  `;
-  container.appendChild(process);
+  return `<p>TE averange <span>${(averange / taskQueue.length).toFixed(
+    2
+  )}</span></p>`;
+};
+
+// It calculates stats for time waiting
+const TSperformance = (table, taskQueue) => {
+  table.insertAdjacentHTML(
+    "beforeend",
+    `<thead>
+      <th>P</th>
+      <th>(ts)</th>
+      <th>(t)</th>
+      <th>(TS)</th>
+    </thead>`
+  );
+
+  let averange = 0;
+  let counter = 0;
+  taskQueue.forEach((task) => {
+    table.insertAdjacentHTML(
+      "beforeend",
+      `<tr>
+        <th>${task["name"]}</th>
+        <th>${parseInt(task["weight"]) + counter}</th>
+        <th>${parseInt(task["start"])}</th>
+        <th>${parseInt(task["weight"]) + counter - parseInt(task["start"])}</th>
+      </tr>`
+    );
+    averange += counter - parseInt(task["start"]);
+    counter += parseInt(task["weight"]);
+  });
+
+  return `<p>TS averange <span>${(averange / taskQueue.length).toFixed(
+    2
+  )}</span></p>`;
+};
+
+export const performeStats = () => {
+  const taskQueue = JSON.parse(localStorage.getItem("task"));
+  let dashboard = document.createElement("article");
+  let table = document.createElement("table");
+  let averange = [];
+
+  averange.push(TEperformance(table, taskQueue));
+  averange.push(TSperformance(table, taskQueue));
+  dashboard.appendChild(table);
+
+  averange.forEach((label) => {
+    dashboard.insertAdjacentHTML("beforeend", label);
+  });
+
+  document.querySelector(".stats").appendChild(dashboard);
 };

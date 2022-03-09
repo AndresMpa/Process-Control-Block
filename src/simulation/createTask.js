@@ -1,3 +1,5 @@
+import { colorGenerator } from "./util.js";
+
 export const validateForm = () => {
   const fields = document.querySelectorAll("input");
   let task = {};
@@ -8,6 +10,8 @@ export const validateForm = () => {
     }
   });
 
+  task["color"] = colorGenerator();
+
   let queue = JSON.parse(localStorage.getItem("task")) || [];
   queue.push(task);
 
@@ -16,22 +20,23 @@ export const validateForm = () => {
   return task;
 };
 
-export const createTask = (container, data) => {
+export const createTask = (container, task) => {
   let process = document.createElement("article");
   process.classList.add("task");
+  process.style.backgroundColor = `${task["color"]}`;
   process.innerHTML = `
-    <h2>Process ${data["name"]}</h2>
+    <h2>Process ${task["name"]}</h2>
     <div>
-      <p><span>CPU burst: </span> ${data["weight"]}</p>
-      <p><span>Time start: </span> ${data["start"]}</p>
+      <p><span>CPU burst: </span> ${task["weight"]}</p>
+      <p><span>Time start: </span> ${task["start"]}</p>
       ${
-        data["priority"]
-          ? `<p><span>Priority: </span> ${data["priority"]}</p>`
+        task["priority"]
+          ? `<p><span>Priority: </span> ${task["priority"]}</p>`
           : ``
       }
       ${
-        data["fraction"]
-          ? `<p><span>Fraction: </span> ${data["fraction"]}</p>`
+        task["fraction"]
+          ? `<p><span>Fraction: </span> ${task["fraction"]}</p>`
           : ``
       }
 

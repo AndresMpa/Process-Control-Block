@@ -1,13 +1,5 @@
 import * as draw from "./drawProcess.js";
 
-const summation = (processQueue, getBy) => {
-  let counter = 0;
-  processQueue.forEach((index) => {
-    counter += parseInt(index[getBy]);
-  });
-  return counter;
-};
-
 const sortProcess = (processQueue, sortBy) => {
   return processQueue.sort((previous, index) => {
     if (previous[sortBy] > index[sortBy]) {
@@ -35,17 +27,18 @@ export const simulate = (value) => {
       /*];*/
       let counter = 0;
 
-      queue.forEach((item, index) => {
+      queue.forEach((process, index) => {
         draw.drawProcess(
           board,
+          process["color"],
           [
             counter,
             index,
-            parseInt(item["weight"]),
+            parseInt(process["weight"]),
           ],
           [10, 10]
         );
-        counter += parseInt(item["weight"]);
+        counter += parseInt(process["weight"]);
       });
 
       break;

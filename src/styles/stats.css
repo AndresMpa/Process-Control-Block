@@ -2,7 +2,29 @@
   position: relative;
 }
 
-.stats table {
+.stats article {
   position: absolute;
-  left: 0;
+  right: 0;
+
+  max-height: 80vh;
+  min-width: 185px;
+  width: auto;
+
+  border-radius: 0px 0px 8px 8px;
+  background-color: lightcyan;
+  padding: 0.2%;
+
+  overflow: auto;
+}
+
+.stats form {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+}
+
+.stats td,
+.stats th {
+  border: 1px solid black;
+  text-align: center;
+  padding: 8px;
 }
