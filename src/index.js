@@ -1,5 +1,4 @@
 import { createTask, validateForm } from "./simulation/task.js";
-import { performeStats } from "./simulation/stats.js";
 import { simulate } from "./simulation/simulation.js";
 import * as util from "./utility/visibility.js";
 
@@ -66,7 +65,6 @@ document.querySelector("#simulation").addEventListener("click", () => {
     }
 
     simulate(algorithm.value);
-    performeStats();
   } else {
     Swal.fire(
       "Oops...",

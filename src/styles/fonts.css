@@ -1,9 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap");
+@font-face {
+  font-family: "Fredoka";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../assets/fredoka-v6-latin-regular.woff") format("woff"),
+    url("../assets/fredoka-v6-latin-regular.woff2") format("woff2");
+}
 
 @import "./colors.css";
 
 :root {
-  --font: "Fredoka", sans-serif;
+  --font: Fredoka, sans-serif;
 }
 * {
   font-family: var(--font);

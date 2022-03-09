@@ -1,3 +1,4 @@
+import { performeStats } from "./stats.js";
 import * as draw from "./draw.js";
 
 const sortProcess = (processQueue, sortBy) => {
@@ -21,9 +22,9 @@ export const simulate = (value) => {
 
       let board = draw.drawBoard();
 
-     /* let sizeFactor = [*/
-        /*(window.innerWidth * 0.5) / summation(queue, "weight") * 2,*/
-        /*(parseInt(board.style.height, 10) * 0.5) / summation(queue, "weight") * 2,*/
+      /* let sizeFactor = [*/
+      /*(window.innerWidth * 0.5) / summation(queue, "weight") * 2,*/
+      /*(parseInt(board.style.height, 10) * 0.5) / summation(queue, "weight") * 2,*/
       /*];*/
       let counter = 0;
 
@@ -31,15 +32,13 @@ export const simulate = (value) => {
         draw.drawProcess(
           board,
           process["color"],
-          [
-            counter,
-            index,
-            parseInt(process["weight"]),
-          ],
+          [counter, index, parseInt(process["weight"])],
           [10, 10]
         );
         counter += parseInt(process["weight"]);
       });
+
+      performeStats();
 
       break;
     case "sjf":
