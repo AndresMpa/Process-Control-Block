@@ -1,4 +1,4 @@
-import * as draw from "./drawProcess.js";
+import * as draw from "./draw.js";
 
 const sortProcess = (processQueue, sortBy) => {
   return processQueue.sort((previous, index) => {
@@ -19,7 +19,7 @@ export const simulate = (value) => {
     case "fifo":
       queue = sortProcess(queue, "start");
 
-      let board = draw.drawBoard(queue);
+      let board = draw.drawBoard();
 
      /* let sizeFactor = [*/
         /*(window.innerWidth * 0.5) / summation(queue, "weight") * 2,*/

@@ -1,8 +1,4 @@
-:root {
-  --backgroundColor: #ffffff;
-  --letterColor: #000;
-  --linksColor: #000;
-}
+@import "./colors.css";
 
 *,
 body {
@@ -12,7 +8,7 @@ body {
 }
 
 body {
-  background-color: darkblue;
+  background-color: var(--background);
   height: 100vh;
 }
 
@@ -20,9 +16,4 @@ ul,
 li {
   text-decoration: none;
   list-style: none;
-}
-
-a {
-  text-decoration: none;
-  color: var(--linksColor);
 }

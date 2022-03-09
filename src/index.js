@@ -1,6 +1,6 @@
-import { createTask, validateForm } from "./simulation/createTask.js";
-import { performeStats } from "./simulation/performStats.js";
-import { simulate } from "./simulation/makeSimulation.js";
+import { createTask, validateForm } from "./simulation/task.js";
+import { performeStats } from "./simulation/stats.js";
+import { simulate } from "./simulation/simulation.js";
 import * as util from "./utility/visibility.js";
 
 const algorithm = document.querySelector("#algorithm");

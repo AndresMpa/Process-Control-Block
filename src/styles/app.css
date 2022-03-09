@@ -1,3 +1,5 @@
+@import "./colors.css";
+
 #app {
   display: inline-flex;
   position: absolute;
@@ -7,7 +9,7 @@
   bottom: 0%;
   left: 0%;
 
-  background-color: blue;
+  background-color: var(--foreground);
   max-width: 100%;
   width: 100%;
 }
@@ -20,8 +22,9 @@
   padding: 0.8%;
   margin: 1.2%;
 
-  border-radius: 8px;
+  color: var(--secondText);
   text-align: center;
+  border-radius: 8px;
 }
 
 .reduce__task {
@@ -32,18 +35,17 @@
   padding: 0.8%;
   margin: 0.2%;
 
-  background-color: tan;
   border-radius: 8px;
   text-align: center;
   font-size: 8px;
 }
 
 .board {
-  max-height: 80vh;
+  height: 80vh;
   width: 85%;
 
-  background-color: lightskyblue;
-  border: 1px solid white;
+  border: 1px solid var(--border);
+  background-color: var(--board);
   border-radius: 8px;
 }
 

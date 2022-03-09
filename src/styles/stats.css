@@ -1,3 +1,5 @@
+@import "./colors.css";
+
 .stats {
   position: relative;
 }
@@ -10,8 +12,8 @@
   min-width: 185px;
   width: auto;
 
+  background-color: var(--foreground);
   border-radius: 0px 0px 8px 8px;
-  background-color: lightcyan;
   padding: 0.2%;
 
   overflow: auto;

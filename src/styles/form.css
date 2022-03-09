@@ -1,8 +1,10 @@
+@import "./colors.css";
+
 #data {
   position: relative;
 }
 
-#data form{
+#data form {
   position: absolute;
   flex-direction: column;
   display: inline-flex;
@@ -11,8 +13,8 @@
   margin: 0% 1.2%;
 
   border-radius: 0px 0px 8px 8px;
-  background: orangered;
-  color: snow;
+  background: var(--board);
+  color: var(--text);
 }
 
 #data h2 {
@@ -32,8 +34,9 @@
 }
 
 #data input {
-  border: 1px solid gray;
+  border: 1px solid var(--border);
   border-radius: 5px;
+  color: var(--background);
 }
 
 #data button {
@@ -42,22 +45,19 @@
 
   border-radius: 5px;
   border: none;
+
+  font-weight: 900;
+  color: var(--text);
 }
 
 #data button:nth-child(1) {
   background-color: limegreen;
-  font-weight: 900;
-  color: snow;
 }
 
 #data button:nth-child(2) {
   background-color: darkred;
-  font-weight: 900;
-  color: snow;
 }
 
 #data button:nth-child(3) {
-  background-color: darkkhaki
-  font-weight: 900;
-  color: snow;
+  background-color: darkkhaki;
 }

@@ -1,10 +1,12 @@
+@import "./colors.css";
+
 .navbar {
   place-items: center;
   display: flex;
 
   padding: 0.5% 0.8%;
 
-  background-color: #fba937;
+  background-color: var(--board);
 }
 
 .navbar figure {
@@ -13,7 +15,7 @@
 
   font-weight: 900;
   cursor: pointer;
-  color: white;
+  color: var(--secondText);
 }
 
 .navbar img {
@@ -28,9 +30,9 @@
 .navbar #algorithm {
   padding: 5px 15px;
 
-  border: 1px solid white;
+  border: 1px solid var(--border);
   border-radius: 5px;
+  color: var(--text);
   background: none;
   cursor: pointer;
-  color: snow;
 }

@@ -1,7 +1,6 @@
-export const drawBoard = (queue) => {
+export const drawBoard = () => {
   let board = document.createElement("canvas");
   board.classList = "board";
-  board.style.height = `${queue.length * 100}px`;
   setTimeout(() => {
     document.querySelector("body").appendChild(board);
   }, 500);
