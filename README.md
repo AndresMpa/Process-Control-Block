@@ -37,6 +37,10 @@ have a priority
 
 ![Priority](./.example/priority.png)
 
+### Round Robin
+
+Still in process...
+
 ### To do
 
 - [x] Performe FIFO simulation
