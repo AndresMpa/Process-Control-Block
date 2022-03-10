@@ -2,6 +2,7 @@ import { performeStats } from "./stats.js";
 import * as draw from "./draw.js";
 
 const sortProcess = (processQueue, sortBy) => {
+  console.log(processQueue);
   return processQueue.sort((previous, index) => {
     if (previous[sortBy] > index[sortBy]) {
       return 1;
@@ -15,25 +16,25 @@ const sortProcess = (processQueue, sortBy) => {
 
 export const simulate = (value) => {
   let queue = JSON.parse(localStorage.getItem("task"));
+  let board = draw.drawBoard();
+  let counter = 0;
+
+  let sizeFactor = [10, 10];
+  /*[
+  (window.innerWidth * 0.5) / summation(queue, "weight") * 2,
+  (parseInt(board.style.height, 10) * 0.5) / summation(queue, "weight") * 2,
+  ];*/
 
   switch (value) {
     case "fifo":
       queue = sortProcess(queue, "start");
-
-      let board = draw.drawBoard();
-
-      /* let sizeFactor = [*/
-      /*(window.innerWidth * 0.5) / summation(queue, "weight") * 2,*/
-      /*(parseInt(board.style.height, 10) * 0.5) / summation(queue, "weight") * 2,*/
-      /*];*/
-      let counter = 0;
 
       queue.forEach((process, index) => {
         draw.drawProcess(
           board,
           process["color"],
           [counter, index, parseInt(process["weight"])],
-          [10, 10]
+          sizeFactor
         );
         counter += parseInt(process["weight"]);
       });
@@ -42,16 +43,37 @@ export const simulate = (value) => {
 
       break;
     case "sjf":
-      queue.forEach((item) => {
-        console.log(item);
+      queue = sortProcess(queue, "start");
+      console.log(queue);
+      queue = sortProcess(queue, "weight");
+      console.log(queue);
+
+      queue.forEach((process, index) => {
+        draw.drawProcess(
+          board,
+          process["color"],
+          [counter, index, parseInt(process["weight"])],
+          sizeFactor
+        );
+        counter += parseInt(process["weight"]);
       });
+
+      performeStats();
+
       break;
     case "priority":
-      queue.forEach((item) => {
-        console.log(item);
-      });
+      Swal.fire(
+        "Still working on it",
+        "I'm not getting pay for this, gime me more time",
+        "info"
+      );
       break;
     case "roundRobin":
+      Swal.fire(
+        "Still working on it",
+        "I'm not getting pay for this, gime me more time",
+        "info"
+      );
       break;
 
     default:

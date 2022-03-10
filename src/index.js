@@ -1,7 +1,6 @@
 import { createTask, validateForm } from "./simulation/task.js";
 import { simulate } from "./simulation/simulation.js";
 import * as util from "./utility/visibility.js";
-
 const algorithm = document.querySelector("#algorithm");
 const data = document.querySelector("#data form");
 const start = document.querySelector("#start");
