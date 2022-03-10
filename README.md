@@ -28,6 +28,13 @@ SJF representes shorter first; in this algorithm the shortert avalible process
 will follow the next one
 
 ![SJF](./.example/sjf.png)
+
+### Priority
+
+Using priority algorithm, task stack will be display all the process by sorting
+every process by a new task call "priority" what means that every process will
+have a priority
+
 ![Priority](./.example/priority.png)
 
 ### To do
