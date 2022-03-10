@@ -17,7 +17,9 @@ This is an example of a FIFO simulation; until now just some process are avalibl
 
 ### To do
 
-- [ ] Performe SJF simulation
-- [ ] Performe Priority simulation
+- [x] Performe FIFO simulation
+- [x] Performe SJF simulation
+- [x] Performe Priority simulation
 - [ ] Performe Round Robin simulation
+- [ ] Scale boxes to fit canvas properly
 - [ ] Improve documentation

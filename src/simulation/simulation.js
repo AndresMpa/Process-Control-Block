@@ -43,10 +43,8 @@ export const simulate = (value) => {
 
       break;
     case "sjf":
-      queue = sortProcess(queue, "start");
-      console.log(queue);
       queue = sortProcess(queue, "weight");
-      console.log(queue);
+      queue = sortProcess(queue, "start");
 
       queue.forEach((process, index) => {
         draw.drawProcess(
@@ -62,11 +60,20 @@ export const simulate = (value) => {
 
       break;
     case "priority":
-      Swal.fire(
-        "Still working on it",
-        "I'm not getting pay for this, gime me more time",
-        "info"
-      );
+      queue = sortProcess(queue, "priority");
+      queue = sortProcess(queue, "start");
+
+      queue.forEach((process, index) => {
+        draw.drawProcess(
+          board,
+          process["color"],
+          [counter, index, parseInt(process["weight"])],
+          sizeFactor
+        );
+        counter += parseInt(process["weight"]);
+      });
+
+      performeStats();
       break;
     case "roundRobin":
       Swal.fire(
