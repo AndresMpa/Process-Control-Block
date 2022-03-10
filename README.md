@@ -11,9 +11,24 @@ This implementation works under a form, where you add every process
 
 ## Simulation
 
-This is an example of a FIFO simulation; until now just some process are avalible...
+> Note: All the representation here don't take care about blanks, such as piece of a process
+> it means that "blanks" will be ommited
 
-![Fifo](./.example/fifo.png)
+### FIFO
+
+This is an example of a FIFO simulation; this algorithm works as a line
+where every process who is "in" will complete its task, then the next process
+who follows its "entrace" will continue
+
+![FIFO](./.example/fifo.png)
+
+### SJF
+
+SJF representes shorter first; in this algorithm the shortert avalible process
+will follow the next one
+
+![SJF](./.example/sjf.png)
+![Priority](./.example/priority.png)
 
 ### To do
 
