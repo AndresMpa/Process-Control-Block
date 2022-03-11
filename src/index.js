@@ -98,3 +98,9 @@ document.querySelector("#clearProcess").addEventListener("click", () => {
 
   util.clearQueue();
 });
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/serviceWorker.js").catch((error) => {
+    console.error(error.message);
+  })
+}

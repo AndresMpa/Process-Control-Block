@@ -4,9 +4,11 @@ export const validateForm = () => {
   const fields = document.querySelectorAll("input");
   let task = {};
 
-  fields.forEach((item) => {
-    if (item.value) {
-      task[item.id] = item.value;
+  fields.forEach((field, index) => {
+    if (field.value) {
+      index > 0
+        ? (task[field.id] = parseInt(field.value))
+        : (task[field.id] = field.value);
     }
   });
 

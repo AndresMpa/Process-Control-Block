@@ -2,7 +2,6 @@ import { performeStats } from "./stats.js";
 import * as draw from "./draw.js";
 
 const sortProcess = (processQueue, sortBy) => {
-  console.log(processQueue);
   return processQueue.sort((previous, index) => {
     if (previous[sortBy] > index[sortBy]) {
       return 1;
@@ -14,12 +13,29 @@ const sortProcess = (processQueue, sortBy) => {
   });
 };
 
+const processCutter = (processQueue) => {
+  let newTask = {};
+  let remanin = 0;
+  processQueue.forEach((task) => {
+    if (task["weight"] > task["fraction"]) {
+      remanin = task["weight"] - task["fraction"];
+
+      task["weight"] = task["weight"] - remanin;
+
+      newTask = { ...task };
+      newTask["weight"] = remanin;
+
+      processQueue.push(newTask);
+    }
+  });
+};
+
 export const simulate = (value) => {
   let queue = JSON.parse(localStorage.getItem("task"));
   let board = draw.drawBoard();
-  let counter = 0;
 
   let sizeFactor = [10, 10];
+  let counter = 0;
   /*[
   (window.innerWidth * 0.5) / summation(queue, "weight") * 2,
   (parseInt(board.style.height, 10) * 0.5) / summation(queue, "weight") * 2,
@@ -28,63 +44,37 @@ export const simulate = (value) => {
   switch (value) {
     case "fifo":
       queue = sortProcess(queue, "start");
-
-      queue.forEach((process, index) => {
-        draw.drawProcess(
-          board,
-          process["color"],
-          [counter, index, parseInt(process["weight"])],
-          sizeFactor
-        );
-        counter += parseInt(process["weight"]);
-      });
-
-      performeStats();
-
       break;
+
     case "sjf":
       queue = sortProcess(queue, "weight");
       queue = sortProcess(queue, "start");
-
-      queue.forEach((process, index) => {
-        draw.drawProcess(
-          board,
-          process["color"],
-          [counter, index, parseInt(process["weight"])],
-          sizeFactor
-        );
-        counter += parseInt(process["weight"]);
-      });
-
-      performeStats();
-
       break;
+
     case "priority":
       queue = sortProcess(queue, "priority");
       queue = sortProcess(queue, "start");
-
-      queue.forEach((process, index) => {
-        draw.drawProcess(
-          board,
-          process["color"],
-          [counter, index, parseInt(process["weight"])],
-          sizeFactor
-        );
-        counter += parseInt(process["weight"]);
-      });
-
-      performeStats();
       break;
+
     case "roundRobin":
-      Swal.fire(
-        "Still working on it",
-        "I'm not getting pay for this, gime me more time",
-        "info"
-      );
+      queue = sortProcess(queue, "start");
+      processCutter(queue);
       break;
 
     default:
       Swal.fire("Oops...", "Something went wrong, try again", "error");
       break;
   }
+
+  queue.forEach((process, index) => {
+    draw.drawProcess(
+      board,
+      process["color"],
+      [counter, index, process["weight"]],
+      sizeFactor
+    );
+    counter += process["weight"];
+  });
+
+  performeStats();
 };
