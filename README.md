@@ -18,13 +18,13 @@ This implementation works under a form, where you add every process
 
 This is an example of a FIFO simulation; this algorithm works as a line
 where every process who is "in" will complete its task, then the next process
-who follows its "entrace" will continue
+who follows its "entrance" will continue
 
 ![FIFO](./.example/fifo.png)
 
 ### SJF
 
-SJF representes shorter first; in this algorithm the shortert avalible process
+SJF represents shorter first; in this algorithm, the shortest avalible process
 will follow the next one
 
 ![SJF](./.example/sjf.png)
@@ -39,6 +39,13 @@ have a priority
 
 ### Round Robin
 
+RR or Round Robin is an algorithm who "cuts" the process to make CPU work a little
+faster than previous algorithms, its main caractheristic is the cutting process this
+process use "rounds", generally this is an static number that tells the CPU how many
+time a task can use the CPU, but in this implementation it is dynamic
+
+![RR](./.example/rr.png)
+
 Still in process...
 
 ### To do
@@ -46,6 +53,6 @@ Still in process...
 - [x] Performe FIFO simulation
 - [x] Performe SJF simulation
 - [x] Performe Priority simulation
-- [ ] Performe Round Robin simulation
+- [x] Performe Round Robin simulation
 - [ ] Scale boxes to fit canvas properly
-- [ ] Improve documentation
+- [x] Improve documentation
