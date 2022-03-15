@@ -62,7 +62,11 @@ export const simulate = (value) => {
       break;
 
     default:
-      Swal.fire("Oops...", "Something went wrong, try again", "error");
+      try {
+        Swal.fire("Oops...", "Something went wrong, try again", "error");
+      } catch (error) {
+        console.log(error.message);
+      }
       break;
   }
 

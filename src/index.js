@@ -14,11 +14,15 @@ window.onbeforeunload = () => localStorage.clear();
 
 start.addEventListener("change", (event) => {
   if (!localStorage.getItem("task")) {
-    Swal.fire(
-      "Input error",
-      "First process can not be higher than zero",
-      "warning"
-    );
+    try {
+      Swal.fire(
+        "Input error",
+        "First process can not be higher than zero",
+        "warning"
+      );
+    } catch (error) {
+      console.log(error.message);
+    }
     event.target.value = 0;
   }
 });
@@ -33,11 +37,15 @@ data.addEventListener("submit", (event) => event.preventDefault());
 
 document.querySelector("#addProcess").addEventListener("click", () => {
   if (localStorage.getItem("task") && parseInt(start.value) === 0) {
-    Swal.fire(
-      "Notice...",
-      "In this implementation there must be only on init process",
-      "info"
-    );
+    try {
+      Swal.fire(
+        "Notice...",
+        "In this implementation there must be only on init process",
+        "info"
+      );
+    } catch (error) {
+      console.log(error.message);
+    }
     start.value = 1;
   } else {
     let newTask = validateForm();
@@ -60,17 +68,21 @@ document.querySelector("#simulation").addEventListener("click", () => {
     try {
       document.querySelector(".stats article").remove();
       document.querySelector("canvas").remove();
-    } catch {
+    } catch (error) {
       console.log("Restarting simulation");
     }
 
     simulate(algorithm.value);
   } else {
-    Swal.fire(
-      "Oops...",
-      "There're no enough process, fill some process first",
-      "error"
-    );
+    try {
+      Swal.fire(
+        "Oops...",
+        "There're no enough process, fill some process first",
+        "error"
+      );
+    } catch (error) {
+      console.log(error.message);
+    }
   }
 });
 
@@ -102,5 +114,5 @@ document.querySelector("#clearProcess").addEventListener("click", () => {
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("/serviceWorker.js").catch((error) => {
     console.error(error.message);
-  })
+  });
 }

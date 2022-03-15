@@ -4,8 +4,20 @@
   position: relative;
 }
 
-.stats article {
+.stats .icon {
   position: absolute;
+  right: 0;
+
+  background-color: var(--label);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 0.4%;
+}
+
+.stats #dashboard {
+  flex-direction: column;
+  position: absolute;
+  display: none;
   right: 0;
 
   max-height: 80vh;
@@ -19,7 +31,9 @@
   overflow: auto;
 }
 
-.stats form {
+.stats #dashboard form {
+  display: none;
+
   font-family: arial, sans-serif;
   border-collapse: collapse;
 }

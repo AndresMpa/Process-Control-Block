@@ -66,8 +66,19 @@ const TSperformance = (table, taskQueue) => {
 export const performeStats = () => {
   const taskQueue = JSON.parse(localStorage.getItem("task"));
   let dashboard = document.createElement("article");
+  let icon = document.createElement("article");
   let table = document.createElement("table");
   let averange = [];
+
+  icon.classList = "icon";
+  icon.innerHTML = "<i class='fa-regular fa-chart-line'> stast</i>";
+
+
+  icon.addEventListener("click", () => {
+    document.querySelector("#dashboard").style.display = "flex";
+  });
+
+  document.querySelector(".stats").appendChild(icon);
 
   averange.push(TEperformance(table, taskQueue));
   averange.push(TSperformance(table, taskQueue));
@@ -75,6 +86,13 @@ export const performeStats = () => {
 
   averange.forEach((label) => {
     dashboard.insertAdjacentHTML("beforeend", label);
+  });
+
+  dashboard.id = "dashboard";
+
+  dashboard.addEventListener("click", (e) => {
+    console.log(e);
+    document.querySelector("#dashboard").style.display = "none";
   });
 
   document.querySelector(".stats").appendChild(dashboard);

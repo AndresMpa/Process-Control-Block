@@ -5,9 +5,9 @@
 }
 
 #data form {
-  position: absolute;
   flex-direction: column;
   display: inline-flex;
+  position: absolute;
 
   padding: 1.2%;
   margin: 0% 1.2%;

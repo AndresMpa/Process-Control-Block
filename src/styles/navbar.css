@@ -36,3 +36,9 @@
   background: none;
   cursor: pointer;
 }
+
+@media screen and (max-width: 380px) {
+  .navbar figcaption {
+    display: none;
+  }
+}
