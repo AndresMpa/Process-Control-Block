@@ -1,6 +1,14 @@
 import { performeStats } from "./stats.js";
 import * as draw from "./draw.js";
 
+const summation = (queue) => {
+  let counter = 0;
+  queue.forEach((task) => {
+    counter += task["weight"];
+  });
+  return counter;
+};
+
 const sortProcess = (processQueue, sortBy) => {
   return processQueue.sort((previous, index) => {
     if (previous[sortBy] > index[sortBy]) {
@@ -31,15 +39,16 @@ const processCutter = (processQueue) => {
 };
 
 export const simulate = (value) => {
+  const body = document.querySelector("body");
   let queue = JSON.parse(localStorage.getItem("task"));
   let board = draw.drawBoard();
 
-  let sizeFactor = [10, 10];
+  let sizeFactor = [
+    (body.offsetWidth * 0.98) / (summation(queue) * 4.5),
+    (body.offsetHeight * 0.8) / (queue.length * 4.5),
+  ];
+
   let counter = 0;
-  /*[
-  (window.innerWidth * 0.5) / summation(queue, "weight") * 2,
-  (parseInt(board.style.height, 10) * 0.5) / summation(queue, "weight") * 2,
-  ];*/
 
   switch (value) {
     case "fifo":

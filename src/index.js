@@ -102,7 +102,7 @@ document.querySelector("#clearProcess").addEventListener("click", () => {
   });
 
   try {
-    document.querySelector(".stats article").remove();
+    document.querySelector(".stats article").innerHTML = "";
     document.querySelector("canvas").remove();
   } catch {
     console.log("There's no simulations running");

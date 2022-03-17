@@ -54,5 +54,5 @@ Still in process...
 - [x] Performe SJF simulation
 - [x] Performe Priority simulation
 - [x] Performe Round Robin simulation
-- [ ] Scale boxes to fit canvas properly
+- [x] Scale boxes to fit canvas properly
 - [x] Improve documentation

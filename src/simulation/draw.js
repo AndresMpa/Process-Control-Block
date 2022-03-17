@@ -11,7 +11,6 @@ export const drawBoard = () => {
 export const drawProcess = (canvas, color, process, size) => {
   const ctx = canvas.getContext("2d");
   ctx.fillStyle = `${color}`;
-  let box = [size[0] * process[0], size[1] * process[1], 10 * process[2], 10];
+  let box = [size[0] * process[0], size[1] * process[1], size[0] * process[2], size[1]];
   ctx.fillRect(...box);
-  //console.log(...box);
 };

@@ -90,8 +90,7 @@ export const performeStats = () => {
 
   dashboard.id = "dashboard";
 
-  dashboard.addEventListener("click", (e) => {
-    console.log(e);
+  dashboard.addEventListener("click", () => {
     document.querySelector("#dashboard").style.display = "none";
   });
 
